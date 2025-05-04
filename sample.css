@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Rest of the CSS remains the same */
+
+.register {
+    font-size: .9em;
+    color: #fff;
+    text-align: center;
+    margin: 25px 0 10px;
+    transition: opacity 0.3s;
+}
+
+.register:hover {
+    opacity: 0.8;
+}
+
+.register p a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
+
+
+#banner {
+    width: 100%;
+    height: 120vh; 
+}
+#navbar {
+    width:90%;
+    margin: auto;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#logo {
+    width: 200px;
+    cursor: pointer;
+}
+#navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+#navbar ul li a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+#navbar ul li::after {
+    content:'';
+    height: 2px;
+    width: 0;
+    background: rgb(154, 207, 245);
+    position: absolute;
+    left:0;
+    bottom: -5px;
+    transition: 1s;
+}
+#navbar ul li:hover::after {
+    width: 100%;  
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    
+}
+
+.formbox{
+    position: relative;
+    width: 650px;
+    height: 1300px;
+    background: transparent;
+    border: 3px solid rgba(230, 222, 222, 0.5);
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+.inputbox{
+    position: relative;
+    margin: 30px 0;
+    width: 410px;
+    border-bottom: 2px solid white;
+}
+
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1em;
+    pointer-events: none;
+}
+
+input:focus ~ label,
+input:valid ~ label{
+    top: -5px;
+}
+
+.inputbox input,select{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    
+    color: #fff;
+}
+option{
+     color: rgb(218, 208, 208);
+     background: transparent;
+     border: none;
+    outline: none;
+    font-size: 1em;
+    
+}
+
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    top: 20px;
+}
+.pp,center
+{
+
+    margin-left:  20px;
+    margin-right: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 80%;
+
+}
+.forget{
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.forget label input{
+    margin-right: 3px;
+}
+
+.forget label a{
+    color: #e91426;
+    text-decoration: none;
+}
+
+.forget label a:hover{
+    text-decoration: underline;
+}
+
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.register{
+    font-size: .9em;
+    color: #fff;
+    text-align: center;
+    margin: 25px 0 10px;
+
+}
+
+.register p a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.register p a:hover{
+    text-decoration: underline;
+}

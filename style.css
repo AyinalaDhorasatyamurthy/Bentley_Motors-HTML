@@ -1,0 +1,290 @@
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #d4af37;
+    --accent-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.luxury-background {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: url('bentley.jpg') no-repeat center center fixed;
+    background-size: cover;#navbar {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background: rgba(0, 0, 0, 0.2); /* Changed from 0.8 to 0.2 for more transparency */
+        backdrop-filter: blur(5px); /* Reduced blur effect */
+        z-index: 3;.nav-links a, ul li a {
+            position: relative;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .nav-links a::after, ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .nav-links a:hover::after, ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Added subtle border */
+        transition: background 0.3s ease; /* Smooth transition for hover effect */
+    }
+    
+    /* Optional: Make navbar slightly darker on hover for better usability */
+    #navbar:hover {
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
+.back-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: var(--secondary-color, #D4AF37);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.back-home:hover {
+    opacity: 0.8;
+}
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+#navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 3;
+}
+
+#logo {
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+#logo:hover {
+    transform: scale(1.05);
+}
+
+#navbar ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+#navbar ul li a:hover {
+    color: var(--secondary-color);
+}
+
+#content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 150px 20px;
+    flex: 1;
+}
+
+#content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease;
+}
+
+.lead-text {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.luxury-btn {
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.luxury-btn.primary {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.luxury-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.5s;
+}
+
+.luxury-btn:hover:before {
+    left: 100%;
+}
+
+.hover-effect {
+    transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+#about {
+    padding: 60px 20px;
+    background: transparent;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#about h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#social {
+    background: transparent;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+#social h4 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    #navbar {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #content h1 {
+        font-size: 36px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .luxury-btn {
+        width: 80%;
+    }
+}

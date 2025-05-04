@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BENTLEY GARAGE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #d4af37;
+            --text-color: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a1a1a;
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: var(--secondary-color);
+            font-size: 36px;
+            margin: 100px 0 50px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .vehicle-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 0 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .vehicle-card {
+            background: #2a2a2a;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 400px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .vehicle-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .vehicle-info {
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            box-sizing: border-box;
+        }
+
+        .vehicle-title {
+            color: var(--secondary-color);
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .vehicle-description {
+            color: #fff;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .popup-content {
+            position: relative;
+            width: 80%;
+            max-width: 1000px;
+            margin: 50px auto;
+            background: #1a1a1a;
+            border: 1px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 30px;
+            color: white;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .nav-links a, ul li a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links a::after, ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after, ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-home {
+    position: fixed;
+    top: 100px; /* Increased top position to move below navbar */
+    left: 20px;
+    padding: 10px 20px;
+    background-color: var(--secondary-color, #D4AF37);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.3s;
+    z-index: 9999;
+}
+
+.back-home:hover {
+    opacity: 0.8;
+}
+        .spec-item {
+            background: #2a2a2a;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .book-now-btn {
+            background: var(--secondary-color);
+            color: #1a1a1a;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+
+        .book-now-btn:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 1200px) {
+            .vehicle-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vehicle-container {
+                grid-template-columns: 1fr;
+            }
+            
+            #navbar {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+
+            .popup-content {
+                width: 95%;
+                margin: 20px auto;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-home" onclick="window.location.href='project.html'">Back to Home</button>
+    <nav id="navbar">
+        <img src="logo.png" alt="Bentley Logo" class="logo">
+        <div class="nav-links">
+            <a href="#">Models</a>
+            <a href="#">World of Bentley</a>
+            <a href="#">Service</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <h1 class="page-title">BENTLEY GARAGE</h1>
+
+    <div class="vehicle-container">
+        <div class="vehicle-card" onclick="showCarDetails('bentayga-ewb-azure')">
+            <img src="bentayga.png" alt="Bentayga EWB Azure" class="vehicle-image">
+            <div class="vehicle-info">
+                <h3 class="vehicle-title">Bentayga EWB Azure</h3>
+                <p class="vehicle-description">The pinnacle of SUV luxury with extended wheelbase.</p>
+            </div>
+        </div>
+
+        <div class="vehicle-card" onclick="showCarDetails('flying-spur')">
+            <img src="car2.png" alt="Flying Spur" class="vehicle-image">
+            <div class="vehicle-info">
+                <h3 class="vehicle-title">Flying Spur</h3>
+                <p class="vehicle-description">Luxury sedan with exquisite craftsmanship.</p>
+            </div>
+        </div>
+
+        <div class="vehicle-card" onclick="showCarDetails('continental-gt')">
+            <img src="car3.png" alt="Continental GT Range" class="vehicle-image">
+            <div class="vehicle-info">
+                <h3 class="vehicle-title">Continental GT Range</h3>
+                <p class="vehicle-description">The ultimate grand touring car.</p>
+            </div>
+        </div>
+
+        <div class="vehicle-card" onclick="showCarDetails('continental-gtc-azure')">
+            <img src="car4.png" alt="Continental GTC Azure" class="vehicle-image">
+            <div class="vehicle-info">
+                <h3 class="vehicle-title">Continental GTC Azure</h3>
+                <p class="vehicle-description">Elegant convertible with exhilarating performance.</p>
+            </div>
+        </div>
+
+        <div class="vehicle-card" onclick="showCarDetails('legend-mulliner')">
+            <img src="car5.png" alt="Legend Mulliner" class="vehicle-image">
+            <div class="vehicle-info">
+                <h3 class="vehicle-title">Legend Mulliner</h3>
+                <p class="vehicle-description">Pinnacle of bespoke craftsmanship.</p>
+            </div>
+        </div>
+
+        <div class="vehicle-card" onclick="showCarDetails('mulsanne')">
+            <img src="car6.png" alt="Mulsanne" class="vehicle-image">
+            <div class="vehicle-info">
+                <h3 class="vehicle-title">Mulsanne</h3>
+                <p class="vehicle-description">Flagship luxury sedan (2010-2020).</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="carPopup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">×</span>
+            <div id="carDetailsContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const bentleyCars = {
+            'bentayga-ewb-azure': {
+                name: "Bentayga EWB Azure",
+                image: "bentayga.png",
+                specs: {
+                    engine: "4.0 litre V8 petrol",
+                    power: "542 bhp",
+                    acceleration: "0-60 mph in 4.5 seconds",
+                    topSpeed: "180 mph",
+                    transmission: "8-speed automatic"
+                },
+                description: "The pinnacle of SUV luxury with extended wheelbase and unique wellness features, offering a true sense of sanctuary.",
+                price: "£165,000"
+            },
+            'flying-spur': {
+                name: "Flying Spur",
+                image: "car2.png",
+                specs: {
+                    engine: "4.0L V8 / 6.0L W12 / 2.9L V6 Hybrid",
+                    power: "542 bhp (V8) / 626 bhp (W12) / 536 bhp (Hybrid)",
+                    acceleration: "0-60 mph in 3.7-4.1 seconds",
+                    topSpeed: "195-207 mph",
+                    transmission: "8-speed dual-clutch"
+                },
+                description: "A luxury sedan combining exhilarating performance with exquisite craftsmanship across three powertrain options.",
+                price: "£175,000"
+            },
+            'continental-gt': {
+                name: "Continental GT Range",
+                image: "car3.png",
+                specs: {
+                    engine: "4.0L V8 / 6.0L W12",
+                    power: "542 bhp (V8) / 626 bhp (W12)",
+                    acceleration: "0-60 mph in 3.6-4.0 seconds",
+                    topSpeed: "198-207 mph",
+                    transmission: "8-speed dual-clutch"
+                },
+                description: "The ultimate grand touring car, blending power, craftsmanship and stunning automotive design.",
+                price: "£169,900"
+            },
+            'continental-gtc-azure': {
+                name: "Continental GTC Azure",
+                image: "car4.png",
+                specs: {
+                    engine: "4.0 litre V8 petrol",
+                    power: "542 bhp",
+                    acceleration: "0-60 mph in 4.0 seconds",
+                    topSpeed: "198 mph",
+                    transmission: "8-speed dual-clutch"
+                },
+                description: "Elegant convertible design with exhilarating performance and innovative technology for driver and passengers.",
+                price: "£179,000"
+            },
+            'legend-mulliner': {
+                name: "Legend Mulliner",
+                image: "car5.png",
+                specs: {
+                    engine: "Custom configurations available",
+                    power: "Varies by specification",
+                    acceleration: "Custom performance",
+                    topSpeed: "Custom",
+                    transmission: "Custom"
+                },
+                description: "The pinnacle of bespoke Bentley craftsmanship with a 500-year heritage of human endeavor and belief.",
+                price: "Price on application"
+            },
+            'mulsanne': {
+                name: "Mulsanne",
+                image: "car6.png",
+                specs: {
+                    engine: "6.75L twin-turbocharged V8",
+                    power: "505 bhp",
+                    acceleration: "0-60 mph in 4.9 seconds",
+                    topSpeed: "184 mph",
+                    transmission: "8-speed automatic"
+                },
+                description: "Bentley's flagship luxury sedan (now discontinued) representing ultimate British luxury and power.",
+                price: "Discontinued (Previously £220,000)"
+            }
+        };
+
+        function showCarDetails(carId) {
+    const car = bentleyCars[carId];
+    const content = `
+        <h2 style="color: var(--secondary-color); font-family: 'Playfair Display', serif; margin-bottom: 20px;">${car.name}</h2>
+        <div style="max-width: 100%; margin-bottom: 20px;">
+            <img src="${car.image}" style="width: 100%; max-width: 100%; border-radius: 8px; object-fit: cover;">
+        </div>
+        <p style="margin-bottom: 20px; line-height: 1.6;">${car.description}</p>
+        <div style="margin-bottom: 20px;">
+            ${Object.entries(car.specs).map(([key, value]) => `
+                <div class="spec-item" style="margin-bottom: 10px;">
+                    <strong>${key.toUpperCase()}:</strong> ${value}
+                </div>
+            `).join('')}
+        </div>
+        <div style="text-align: center; padding: 20px 0;">
+            <button class="book-now-btn" onclick="location.href='loginpage.html'">Book Now - ${car.price}</button>
+        </div>
+    `;
+    document.getElementById('carDetailsContent').innerHTML = content;
+    document.getElementById('carPopup').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+        function closePopup() {
+            document.getElementById('carPopup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>

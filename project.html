@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BENTLEY MOTORS | Luxury Redefined</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="luxury-background">
+        <video autoplay muted loop id="myVideo">
+            <source src="bentley-bg.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <nav id="navbar">
+            <img src="logo.png" id="logo" alt="Bentley Motors Logo" data-aos="fade-right">
+            <ul data-aos="fade-left">
+                <li><a href="page1.html">Models</a></li>
+                <li><a href="#">World of Bentley</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="content" data-aos="fade-up" data-aos-duration="1000">
+            <h1>WELCOME TO BENTLEY HOME</h1>
+            <p class="lead-text">A new collection in collaboration with three world renowned designers and architects</p>
+            <div class="cta-buttons">
+                <button class="luxury-btn hover-effect">Explore More</button>
+                <button class="luxury-btn primary hover-effect"onclick="window.location.href='loginpage.html' ">Book Online</button>
+                <button class="luxury-btn hover-effect">Showrooms</button>
+            </div>
+        </div>
+        <section id="about" data-aos="fade-up">
+            <div class="container">
+                <h3>About Us</h3>
+                <p>From W.O. Bentley's visionary beginnings to today's pinnacle of automotive excellence, Bentley Motors represents the perfect fusion of power, craftsmanship, and timeless elegance.</p>
+            </div>
+        </section>
+        <section id="social" data-aos="fade-up">
+            <h4>Connect With Us</h4>
+            <div class="social-icons">
+                <a href="#" class="hover-effect"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover-effect"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover-effect"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover-effect"><i class="fab fa-instagram"></i></a>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

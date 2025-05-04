@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sample.css">
+    <title>bank transfer</title>
+</head>
+<style>
+   h4
+   {
+    color: #fff;
+   }
+  .inputbox textarea
+{
+    background: transparent;
+    color: #fff;
+    backdrop-filter: blur(15px);
+    
+}
+.formbox{
+    position: relative;
+    width: 650px;
+    height: 1450px;
+    background: transparent;
+    border: 3px solid rgba(230, 222, 222, 0.5);
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    height: 200vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("c.jpg") no-repeat fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+    button {
+        width: 100%;
+        height: 40px;
+        border-radius: 40px;
+        background: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 600;
+    }
+</style>
+<body>
+    <div id="banner">
+        <div id="navbar">
+            <a href="project.html"><img src="logo.png" id="logo" title="bentley motors logo"></a>
+            <ul>
+                <li><a href="page1.html">models</a></li>
+                <li><a href="#">world of bentley</a></li>
+                <li><a href="#">service</a></li>
+                <li><a href="#">contact</a></li>
+                <li><a href="#">History</a></li>
+            </ul>
+        </div>
+        <section>
+            <div class="formbox">
+                <div class="form-value">
+                    <form action="payment4.html?re=<your_username_value>&rs=<your_email_value>&date=<your_date_value>&car=<your_car_value>&accountnumber=<your_accountnumber_value>&bank=<your_bank_value>&phonenumber=<your_phonenumber_value>&dateofRegistration=<your_dateofregistration_value>" id="registrationForm" target="_blank">
+
+                        <h2><u>Bank transfer</u></h2>
+                        <div class="inputbox">
+                            <ion-icon name="person-outline"></ion-icon>
+                            <input type="text" name="re" required pattern=".{1,18}" >
+                            <label for="">Username</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <input type="email" name="rs" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <input type="text" required>
+                            <label for="">user id</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" required>
+                            <label for="">Password</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="text" name="IFSCcode" required pattern=".{1,12}" >
+                            <label for="">IFSC code</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="number" name="bank1" required pattern="\d{9}">
+                            <label for="">branch number:</label>
+                        </div>
+                        <div class="inputbox">
+                            <select for="" name="car">
+                                <option value="">Select car models</option>
+                                <option value="SBI">SBI (STATE BANK OF INDIA)</option>
+                                <option value="BANK OF BARODA">BANK OF BARODA</option>
+                                <option value="AXIS BANK">AXIS BANK</option>
+                                <option value="SYINDICATE BANK">SYNDICATE BANK</option>
+                                <option value="ICIC BANK">ICICI BANK</option>
+                                <option value="HDFC BANK">HDFC BANK</option>
+                            </select>
+                        </div>
+
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="text" name="bank2"required pattern=".{1,9}">
+                            <label for="">branch name:</label>
+                        </div><br>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <h4 for="">branch address:<textarea name="area" rows="3" cols="60"></textarea><h4>
+                            
+                            
+                           
+                        </div>
+                        <div class="inputbox">
+                            <select for="" name="bank">
+                                <option value="">Select Bank</option>
+                                <option value="SBI">SBI (STATE BANK OF INDIA)</option>
+                                <option value="BANK OF BARODA">BANK OF BARODA</option>
+                                <option value="AXIS BANK">AXIS BANK</option>
+                                <option value="SYINDICATE BANK">SYNDICATE BANK</option>
+                                <option value="ICIC BANK">ICICI BANK</option>
+                                <option value="HDFC BANK">HDFC BANK</option>
+                            </select>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" name="accountNumber" required pattern="\d{16}" >
+                            <label for="">Account Number</label>
+                        </div>
+                       
+                        <div class="inputbox">
+                            <ion-icon name="call-outline"></ion-icon>
+                            <input type="tel" name="phoneNumber" required pattern="\d{10}">
+                            <label for="">Phone number</label>
+                        </div>
+                        <div class="inputbox">
+                            <label for="">Date Of Registration:</label> <br><br>
+                            <pre><input type="datetime-local" name ="dateofRegistration" required></pre>
+                        </div>
+                        <br>
+                        <div class="forget">
+                            <label for=""><input type="checkbox">Remember Me</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#">Forget Password</a>
+                        </div>
+                        <br>
+                        <p><button type="submit">SUBMIT</button></p>
+                        <br><br>
+                        <p><button type="button" onclick="proceed()">PROCEED</button></p>
+                        <br>
+                    </form>
+
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <center><u>POLICY</u></center>
+        <p class="pp">Considering the requirements for approval of related party transactions as prescribed under the Companies Act, 2013 (“Act”) read with the Rules framed thereunder and Regulation 23 of the SEBI (Listing Obligations and Disclosure Requirements) Regulations 2015 (“SEBI Listing Regulations”), Tata Motors Limited (“TML” or “the Company”) has formulated guidelines for identification of related parties and the proper conduct and documentation of all related party transactions.</p>
+        <script>
+            function proceed() {
+              // Get the values from the form
+              const username = document.querySelector('input[name="re"]').value;
+              const email = document.querySelector('input[name="rs"]').value;
+          
+              // Prompt for OTP
+              const otp = prompt('Please enter the OTP:');
+              if (otp) {
+                alert('Your payment is successful!');
+                const DateofBirth = document.querySelector('input[name="date"]').value;
+                const dateOfRegistration = document.querySelector('input[name="dateofRegistration"]').value;
+          
+                // Set the values of the hidden fields
+                document.querySelector('input[name="re"]').value = username;
+                document.querySelector('input[name="rs"]').value = email;
+                document.querySelector('input[name="date"]').value = DateofBirth;
+                document.querySelector('input[name="dateofRegistration"]').value = dateOfRegistration;
+          
+                // Submit the form
+                document.getElementById('registrationForm').submit();
+              }
+            }
+          </script>
+          
+        
+    </div>
+</body>
+</html>
